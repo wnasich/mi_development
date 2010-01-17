@@ -1,0 +1,451 @@
+/* SVN FILE: $Id: admin_default.css 1472 2009-08-18 22:46:46Z ad7six $ */
+
+/*
+ * Default styles. Inspiration taken from sites including Ohloh, Assembla and others
+ * If you notice a striking similarity between these styles and any other public site
+ * please let me know to give attribution or to request these styles be changed for clarity.
+ *
+ * Copyright (c) 2008, Andy Dawson
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @filesource
+ * @copyright     Copyright (c) 2008, Andy Dawson
+ * @link          www.ad7six.com
+ * @package       base
+ * @subpackage    base.vendors.css
+ * @since         v 1.0
+ * @version       $Revision: 1472 $
+ * @modifiedby    $LastChangedBy: ad7six $
+ * @lastmodified  $Date: 2009-08-19 00:46:46 +0200 (Wed, 19 Aug 2009) $
+ * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
+@import "forms.css";
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration:dotted;
+	color: 	#003d4c;
+}
+h1, #content h2{
+	color: #e32;
+	background:#003d4c;
+	padding: 1px 5px;
+}
+#content h2 a {
+	color: #e32;
+}
+h2 {
+	padding-top:0;
+}
+#header {
+	padding:10px 0;
+}
+
+dl dt {
+	float:left;
+	width: 250px;
+}
+dl dd {
+	padding: 2px;
+	margin: 0 0 5px 300px;
+}
+table tbody tr td {
+	text-align:left;
+}
+tr.even {
+	background: #F2F2F2;
+}
+tr.odd, tr.even {
+	cursor: pointer;
+}
+tr:hover {
+	background: yellow;
+}
+table tr td {
+	background: transparent;
+}
+
+.clearfix:after, div#context div.photo:after, ul.menu:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+body {
+	/* text-align: center; */
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+	background:#fff;
+	max-width:1200px;
+}
+p.tagline {
+	font-style: italic;
+}
+
+#navcontainer ul {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	height: 1.5em;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+}
+
+#navcontainer ul li {
+	display: block;
+	float: left;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+#navcontainer ul li a, #navcontainer ul li h2 {
+	width: 7em;
+	height: 1em;
+	padding: 5px;
+	margin: 0 0 3px;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	font: normal 70%/80% "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, sans-serif;
+	color: #444444;
+}
+#navcontainer li.active a {
+	font: bold 70%/80% "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, sans-serif;
+}
+
+#navcontainer ul li a:hover {
+	border-bottom:3px solid #333333;
+	margin: 0;
+	color: #111111;
+}
+li.active {
+	margin: 0;
+}
+li.active a:hover, li.active a {
+	font-weight: bold;
+	border-bottom:none;
+	margin: 0;
+	color: #111111;
+}
+
+#container {
+	/* text-align: left; */
+
+}
+#container table {
+	width: 100%;
+}
+#wrapper {
+	position: relative;
+	margin-bottom: 1em;
+}
+
+#content {
+	float: left;
+	width: 80%;
+	max-width:850px;
+	padding: 5px;
+}
+#content ul, #sideBar ul {
+	padding-left: 20px;
+}
+ul.menu, ul.menu li > ul {
+	list-style-type: none;
+}
+#content ul.floater {
+	list-style-type: none;
+	padding-left: 0;
+}
+#content ul.floater li {
+	font-size:160%;
+	font-weight:bold;
+	clear: left;
+}
+#content ul.floater li ul {
+	list-style-type: none;
+	padding-left: 0;
+	width: 32%;
+	float: left;
+}
+#content ul.floater li ul li {
+	font-size:100%;
+	font-weight:normal;
+}
+ol {
+	margin: 0 0 1em 0;
+	padding: 0 0 0 20px;
+}
+#content p {
+	margin-bottom: 1em;
+}
+
+#lowerMenu {
+	-moz-border-radius: 10px;
+	background: #003d4c;
+	color: #FFFFFF;
+	padding: 50px 50px 0 50px;
+	clear: right;
+	font-size: smaller;
+}
+
+#lowerMenu div {
+	width: 33%;
+	float: left;
+	text-align: justify;
+}
+
+#lowerMenu div ul {
+	list-style-type: none;
+}
+
+#lowerMenu a {
+	text-decoration:dotted;
+	color: #FFFFFF;
+}
+
+#footer {
+	clear: both;
+	margin: 0;
+	padding: 5px 0 15px 0;
+	text-align: right;
+}
+
+#footer a {
+}
+
+#sideBar {
+	width: 300px;
+	float: right;
+	padding-left: 5px;
+	margin-bottom: -5px;
+	margin-top: 5px;
+}
+
+#sideBar div {
+	background: #EEEEDD;
+	-moz-border-radius-topright: 20px;
+	-moz-border-radius-bottomleft: 20px;
+	margin-bottom: 5px;
+	padding: 5px 5px 10px 5px;
+	text-align: justify;
+}
+
+#sideBar h2, #sideBar a {
+	background: transparent;
+}
+#sideBar div h3 {
+	margin: 0 0 0.5em 0;
+}
+
+/* Forms */
+fieldset div {
+	float: left;
+	clear: left;
+	margin-bottom: 0.5em;
+	padding: .2em;
+	vertical-align: text-top;
+	margin: 0 20px;
+}
+div.sideBar form {
+	font-size: smaller;
+}
+
+/* Notices and Errors */
+.notice {
+	background: #ffcc00;
+	color: #000;
+	display: block;
+	font-family: Courier, monospace;
+	font-size: 120%;
+	line-height: 140%;
+	padding: 0.8em;
+	margin: 1em 0;
+}
+.success {
+	background: green;
+	color: #fff;
+}
+div.error-message {
+	color: #900;
+	font-weight: bold;
+}
+div.message {
+	text-align: center;
+	position: relative;
+	padding:4px;
+	margin: 0px;
+	margin-bottom: 20px;
+	background-color: #e5f0fc;
+	border: 1px solid #ccc;
+}
+.flashWarn {
+	background-color: #e5f0fc;
+	border:1px solid yellow;
+}
+.flashError, #authMessage {
+	background-color:#FFE8E8;
+	border:1px solid red;
+	color: red;
+}
+#paging {
+	text-align:center;
+}
+pre {
+	text-align:left;
+}
+
+/* code blocks */
+pre.code {
+	display: none;
+	padding: 1em 30px;
+	line-height: 1.1em;
+	overflow: auto;
+	background: #f3f3f0;
+}
+ol.code {
+	margin: 1em 0;
+	padding: 0;
+	font-size: 0.75em;
+	line-height: 1.8em;
+	overflow: hidden;
+	color: #939399;
+	text-align: left;
+	list-style-position: inside;
+	border: 1px solid #d3d3d0;
+	overflow: auto;
+}
+ol.code li {
+	float: left;
+	clear: both;
+	width: 99%;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0 0 0 1%;
+	background: #f3f3f0;
+}
+ol.code li.even { background: #fff; }
+ol.code li code {
+	font: 1.2em courier, monospace;
+	color: #c30;
+	white-space: pre;
+	padding-left: 0.5em;
+}
+.code .comment { color: #939399; }
+.code .default { color: #44c; }
+.code .keyword { color: #373; }
+.code .string { color: #c30; }
+
+div#hoverMenu {
+	position: absolute;
+	right: 40px;
+	top: 45px;
+	font-size: 60%;
+}
+div#hoverMenu a {
+	float: right;
+	-moz-border-radius: 10px;
+	background: #000;
+	color: #fff;
+	padding: 0.5em;
+	margin-left: 0.5em;
+}
+div.file div.photo {
+	float: right;
+}
+div#context div.photo {
+	float: left;
+}
+div#sideBar h4 {
+	position: relative;
+}
+
+div#sideBar h4 span {
+	position: absolute;
+	right: 0;
+}
+div.options ul.node-options a, a.treeOptionsToggle {
+	color: #993;
+}
+ul.tree-options {
+	margin: 0;
+	padding-left: none;
+	display: inline;
+}
+ul.tree-options li {
+	margin-right: 10px;
+	display: inline;
+}
+ul.tree-options a {
+	color: #993;
+	text-decoration: none;
+}
+li.disabled a{
+	color:#CCC;
+}
+li.pending a{
+	color:#AAA;
+	font-style: italic;
+}
+div#searchFilter form div {
+}
+div#searchFilter form div div.filter {
+	display:inline;
+}
+div#searchFilter form div label {
+	display:inline;
+}
+div#searchFilter form div input {
+	clear:none;
+	width: 40%;
+	display:inline;
+}
+td.description {
+	font-style: italic;
+}
+ul#imageIndex {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	height: 1.5em;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+}
+
+ul#imageIndex li {
+	display: block;
+	float: left;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+ul#imageIndex img {
+	width: 100px;
+	height: 100px;
+}
+ul#imageIndex dl {
+	text-size: 50%;
+}
+a.leavePopup {
+	margin:-10px 0 0;
+	padding:1px;
+	position:absolute;
+	right:26px;
+	top:50%;
+	width:19px;
+}
+.watermark { color: gray; }

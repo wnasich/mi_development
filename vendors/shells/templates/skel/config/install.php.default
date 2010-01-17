@@ -1,0 +1,8 @@
+<?php
+/**
+ * If you're using svn - the php user won't have your svn username or password when you
+ * Launch the update.
+ * Add it explicitly here so that you can still update from the web if you use the mi_development
+ * toolbar, or from the command line if necessary
+ */
+$config['svn']['app']['upgrade'] = 'svn cleanup && svn up --user myusername --password mypassword && dothiswhileyoureatit';

@@ -1,0 +1,179 @@
+/* SVN FILE: $Id: forms.css 1472 2009-08-18 22:46:46Z ad7six $ */
+
+/*
+ * Short description for forms.css
+ *
+ * Long description for forms.css
+ *
+ * Copyright (c) 2009, Andy Dawson
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @filesource
+ * @copyright     Copyright (c) 2009, Andy Dawson
+ * @link          www.ad7six.com
+ * @package       base
+ * @subpackage    base.vendors.css
+ * @since         v 1.0 (20-May-2009)
+ * @version       $Revision: 1472 $
+ * @modifiedby    $LastChangedBy: ad7six $
+ * @lastmodified  $Date: 2009-08-19 00:46:46 +0200 (Wed, 19 Aug 2009) $
+ * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
+form {
+	margin-right: 20px;
+	padding: 0;
+	width: 100%;
+}
+fieldset {
+	border: 1px solid #ccc;
+	margin-top: 30px;
+	padding: 16px 20px;
+}
+fieldset legend {
+	background:#fff;
+	color: #e32;
+	font-size: 160%;
+	font-weight: bold;
+}
+fieldset fieldset {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 16px;
+}
+fieldset fieldset legend {
+	font-size: 120%;
+	font-weight: normal;
+	margin-left: 20px;
+}
+fieldset fieldset div {
+	clear: left;
+	margin: 0 20px;
+}
+form div {
+	clear: left;
+	padding: .2em;
+	vertical-align: text-top;
+}
+form div.input {
+	color: #444;
+}
+form div.required {
+	color: #333;
+	font-weight: bold;
+}
+form div.submit {
+	border: 0;
+	clear: left;
+	margin-top: 10px;
+	margin-left: 140px;
+}
+label {
+	display: block;
+	font-size: 110%;
+	padding-right: 20px;
+}
+input, textarea {
+	clear: left;
+	font-size: 140%;
+	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+	padding: 2px;
+	width: 90%;
+}
+select {
+	font-size: 120%;
+	vertical-align: text-bottom;
+}
+select[multiple=multiple] {
+	width: 100%;
+}
+option {
+	font-size: 120%;
+	padding: 0 3px;
+}
+input[type=hidden] {
+	display: none;
+}
+input[type=checkbox] {
+	clear: left;
+	float: left;
+	margin: 0px 6px 7px 2px;
+	width: auto;
+}
+input[type=radio] {
+	float:left;
+	width:auto;
+	margin: 0 3px 7px 0;
+}
+div.radio label {
+	margin: 0 0 6px 20px;
+}
+input[type=submit], input[type=button] {
+	display: inline;
+	font-size: 110%;
+	padding: 2px 5px;
+	width: auto;
+	vertical-align: bottom;
+}
+
+/* Narrow Inputs */
+div.narrow input {
+	width: 12em;
+}
+
+/* Wide Inputs */
+div.textarea, div.wide {
+	clear: left;
+	width: 100%;
+}
+form.compact fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+form.compact legend {
+	background: transparent;
+}
+form.compact div.input {
+	background: transparent;
+}
+form.compact div.checkbox {
+	clear: left;
+}
+form.compact label {
+	font-size: 80%;
+}
+form.compact input {
+	font-size: 80%;
+}
+form.compact div.submit {
+	margin: 0;
+	margin-bottom: 10px;
+	clear: none;
+	float: right;
+}
+
+/* Odd balls */
+img.ui-datepicker-trigger {
+	margin-left: -20px;
+}
+div.checkbox {
+	vertical-align: center;
+	height: 3em;
+	padding-top: 1em;
+}
+div.checkbox input.checkbox {
+	float: left;
+	clear: none;
+}
+div.checkbox label {
+	display: inline;
+}
+
+form div.floater {
+	padding-right: 20px;
+	width: 45%;
+	float: left;
+	clear: none;
+}

@@ -1,0 +1,98 @@
+# LANGUAGE translation of Mi Development Application
+# Copyright 2008 Andy Dawson <andydawson76@yahoo.co.uk>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mi_development-unknown\n"
+"POT-Creation-Date: 2009-08-16 22:24+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Andy Dawson <andydawson76@yahoo.co.uk>\n"
+"Language-Team:\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../../\n"
+
+#: vendors/shells/mi_i18n.php:65
+msgid "MiI18n Extraction Shell"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:67
+msgid "[E]xtract POT file from sources"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:68
+msgid "[H]elp"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:69
+msgid "[Q]uit"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:71
+msgid "What would you like to do?"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:83
+msgid "You have made an invalid selection. Please choose a command to execute by entering E, H, or Q."
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:97
+msgid "MiI18n Shell:"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:99
+msgid "This shell is a complement, not a replacement, for the shipped I18n Shell"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:100
+msgid "You can use it to extract all field names and validation error messages for easy one-stop editing of "
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:101
+msgid "Validation error messages irrespective of the language."
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:102
+msgid "The reason this shell was created was to avoid the possiblity for error messages to get \"confused\""
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:103
+msgid "and to prevent the need to change code to edit these messages. See MiForm Helper for more info on"
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:104
+msgid "how these definitions are used."
+msgstr ""
+
+#: vendors/shells/mi_i18n.php:106
+msgid "usage:"
+msgstr ""
+
+#: vendors/shells/tasks/mi_extract.php:115
+msgid "Generating main file list..."
+msgstr ""
+
+#: vendors/shells/tasks/mi_extract.php:146;161;221;286
+msgid "\tfor %1$s..."
+msgstr ""
+
+#: vendors/shells/tasks/mi_extract.php:338
+msgid "Processing %1$s..."
+msgstr ""
+
+#: vendors/shells/templates/skel/webroot/test.php:111
+msgid "Debug setting does not allow access to this url."
+msgstr ""
+
+#: views/dev/admin_index.ctp:2;3
+#: views/dev/admin_log.ctp:13
+msgid "Options"
+msgstr ""
+
+#: views/helpers/tidy.php:107
+msgid "No markup errors found"
+msgstr ""
+

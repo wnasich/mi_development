@@ -1,0 +1,15 @@
+#!/bin/bash
+# Script to use on production/staging/testing environments to update the install
+# Tweak as desired
+here=`pwd`
+
+svn up
+cake clear TMP
+cake clear css
+cake clear js
+chmod -R 770 .
+
+cd ~/www/mi && svn up
+cd ~/www/cakes/1.3.x.x && git pull
+
+cd $here

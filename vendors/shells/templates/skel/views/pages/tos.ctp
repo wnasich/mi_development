@@ -1,0 +1,1 @@
+<h1>Your site's terms and conditions</h1>

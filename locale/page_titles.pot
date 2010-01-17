@@ -1,0 +1,37 @@
+# LANGUAGE translation of Mi Development Application
+# Copyright 2008 Andy Dawson <andydawson76@yahoo.co.uk>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mi_development-unknown\n"
+"POT-Creation-Date: 2009-08-16 22:24+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Andy Dawson <andydawson76@yahoo.co.uk>\n"
+"Language-Team:\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../../\n"
+
+#: controllers/dev_controller.php:77
+msgid "Admin :: Dev :: Clear"
+msgstr ""
+
+#: controllers/dev_controller.php:128
+msgid "Admin :: Dev :: Db Dump"
+msgstr ""
+
+#: controllers/dev_controller.php:40
+msgid "Admin :: Dev :: Index"
+msgstr ""
+
+#: controllers/dev_controller.php:40
+msgid "Admin :: Dev :: Log"
+msgstr ""
+
+#: controllers/dev_controller.php:169
+msgid "Admin :: Dev :: Svn Up"
+msgstr ""
+

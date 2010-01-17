@@ -1,0 +1,5 @@
+# Don't name anything here that you don't want the world to know about
+User-agent: *
+Disallow: # Free reign
+
+# Disallow: /afolder/ # url match

@@ -1,0 +1,57 @@
+# NOTE
+# 	.htaccess files are an overhead, this logic should be in your webserver config if poss
+# 	Changing webserver (lighttpd, nginx) will probably improve site response times more than these tweaks
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+	# EITHER
+	# 1) Remove www from the url - Prevents the possibility of any cookieless requests
+	# Useful for using subdomains with single-signon
+	RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+	RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,NC,L]
+	## 2) add www to the url - Allow cookieless requests on a subdomain
+	## Means you can have your static media served from a subdomain
+	#RewriteCond %{HTTP_HOST} !^www\.(.*) [NC]
+	#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,NC,L]
+
+	# Some MCurry Love http://github.com/mcurry/html_cache/blob/master/extras/webroot.htaccess
+	RewriteCond %{REQUEST_METHOD} ^GET
+	RewriteCond %{HTTP_COOKIE} !^.*(CAKEPHP|CakeCookie).*$ [NC]
+	RewriteCond %{DOCUMENT_ROOT}/cache/$1/index.html -f
+	RewriteRule ^(.*)$ /cache/$1/index.html [L]
+
+	# Send to cake if the request isn't a file that exists in the webroot
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/xhtml+xml
+<FilesMatch "\.(?!php).*$">
+	# if it's not a php file (and it's a real file, in the webroot)
+	# EITHER
+	# 1) These settings will ensure there are no stale cache files
+    <IfModule mod_headers.c>
+        Header set Cache-Control "max-age=864000, public, must-revalidate"
+    </IfModule>
+    <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresDefault "access plus 1 year"
+    </IfModule>
+    FileETag All
+	# 2) These settings will eliminate any validation requests -
+	# This will increase performance but is only appropriate if you're fingerprinting files
+	# I.e. the file doesn't or very rarely changes, and if you change it - you change the filename
+	# FileETag None
+	# Header unset ETag
+	# Header unset Last-Modified
+</FilesMatch>
+<FilesMatch "\.html$">
+	# Unless it's a html file - in which case make sure it's always fresh
+	# TODO achieve 304s
+    <IfModule mod_headers.c>
+        Header set Cache-Control "must-revalidate"
+	Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+    </IfModule>
+    <IfModule mod_expires.c>
+        ExpiresActive Off
+    </IfModule>
+</FilesMatch>
