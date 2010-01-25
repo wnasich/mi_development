@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: index.ctp 1508 2009-09-01 21:59:41Z ad7six $ */
+<?php /* SVN FILE: $Id$ */
 
 /*
 foreach ($data as $id => $display) {

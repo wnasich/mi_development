@@ -1,5 +1,5 @@
 ;<?php die() ?>
-; SVN FILE: $Id: acl.ini.php 1467 2009-08-18 22:22:06Z ad7six $
+; SVN FILE: $Id$
 ;/**
 ; * Short description for file.
 ; *
@@ -18,9 +18,9 @@
 ; * @package       cake
 ; * @subpackage    cake.app.config
 ; * @since         CakePHP(tm) v 0.10.0.1076
-; * @version       $Revision: 1467 $
-; * @modifiedby    $LastChangedBy: ad7six $
-; * @lastmodified  $Date: 2009-08-19 00:22:06 +0200 (Wed, 19 Aug 2009) $
+; * @version       $Revision$
+; * @modifiedby    $LastChangedBy$
+; * @lastmodified  $Date$
 ; * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
 ; */
 

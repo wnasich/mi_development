@@ -5,7 +5,7 @@ if (!($Inst->Behaviors->attached('Tree') || $Inst->Behaviors->attached('List')))
 }
 $this->templateVars['postActions'][] = $admin . 'recover';
 ?>
-	function <?php echo $admin ?>recover($sort = null) {
+	public function <?php echo $admin ?>recover($sort = null) {
 		if (!$sort) {
 			$sort = $this-><?php echo $currentModelName ?>->displayField;
 		}

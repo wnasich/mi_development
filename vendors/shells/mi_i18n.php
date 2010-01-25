@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: mi_i18n.php 2061 2010-01-04 14:53:05Z AD7six $ */
+/* SVN FILE: $Id$ */
 
 /**
  * Short description for i18n_dynamic.php
@@ -19,9 +19,9 @@
  * @package       base
  * @subpackage    base.vendors.shells
  * @since         v 1.0
- * @version       $Revision: 2061 $
- * @modifiedby    $LastChangedBy: AD7six $
- * @lastmodified  $Date: 2010-01-04 15:53:05 +0100 (Mon, 04 Jan 2010) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 require_once (CAKE_CORE_INCLUDE_PATH . '/cake/console/libs/i18n.php');

@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>add() {
+	public function <?php echo $admin ?>add() {
 		if ($this->data) {
 			if ($this-><?php echo $currentModelName ?>->saveAll($this->data)) {
 				$display = $this-><?php echo $currentModelName ?>->display();
@@ -18,6 +18,6 @@
 				}
 			}
 		}
-		$this->_setSelects();
+		$this->_setSelects(false);
 		$this->render('<?php echo $admin ?>edit');
 	}

@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: form.ctp 2085 2010-01-10 21:52:58Z ad7six $ */
+<?php /* SVN FILE: $Id$ */
 if ($plugin) {
 	ob_start();
 }

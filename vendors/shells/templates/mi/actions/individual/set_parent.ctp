@@ -4,7 +4,7 @@ if (!$Inst->Behaviors->attached('Tree')) {
 	return;
 }
 ?>
-	function <?php echo $admin ?>set_parent($id = null, $parentId = null) {
+	public function <?php echo $admin ?>set_parent($id = null, $parentId = null) {
 		if ($id == null && $parentId == null && $this->data) {
 			$id = $this->data['<?php echo $currentModelName ?>']['node'];
 			$this-><?php echo $currentModelName ?>->id = $id;

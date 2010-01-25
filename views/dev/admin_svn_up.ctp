@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: admin_svn_up.ctp 1388 2009-08-04 15:20:32Z AD7six $ */ ?>
+<?php /* SVN FILE: $Id$ */ ?>
 <h2>7 up..</h2>
 <pre>
 <?php echo implode($svnReturn, "\r\n") ?>

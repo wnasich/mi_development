@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: footer.ctp 1467 2009-08-18 22:22:06Z ad7six $ */ ?>
+<?php /* SVN FILE: $Id$ */ ?>
 
 ___________________
 <?php

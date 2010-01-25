@@ -3,7 +3,7 @@ $Inst =& ClassRegistry::init($currentModelName);
 $schema = $Inst->schema();
 $alias = ucfirst(strtolower($pluralHumanName));
 ?>
-	function <?php echo $admin ?>multi_process($action = null) {
+	public function <?php echo $admin ?>multi_process($action = null) {
 		if (!$this->data) {
 			$this->_back();
 		}

@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>view($id = null) {
+	public function <?php echo $admin ?>view($id = null) {
 		$this->data = $this-><?php echo $currentModelName ?>->read(null, $id);
 <?php
 $Inst =& ClassRegistry::init($currentModelName);

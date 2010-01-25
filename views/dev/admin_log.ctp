@@ -1,4 +1,4 @@
-<?php /* SVN FILE $Id: admin_log.ctp 1444 2009-08-16 21:31:04Z ad7six $ */
+<?php /* SVN FILE $Id$ */
 foreach ($data as $log => $contents) {
 	$title = Inflector::humanize(str_replace('.', '_', $log));
 	echo '<h2>' . $title . '</h2><pre>';

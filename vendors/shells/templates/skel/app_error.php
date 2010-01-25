@@ -184,8 +184,15 @@ class AppError extends ErrorHandler {
 
 		$this->controller->set('title_for_layout', Inflector::humanize(str_replace('/', ' ', $requestedPath)));
 		$this->controller->beforeRender();
-		$this->controller->cacheAction = '+1 day';
-		$this->controller->helpers[] = 'Cache';
+		if (!isDevelopment()) {
+			$this->controller->cacheAction = '+1 day';
+			$this->controller->helpers[] = 'Cache';
+			if (!$this->Session->read('Message')
+				&& !$this->Auth->user()
+				&& App::import('Helper', 'HtmlCache.HtmlCache')) {
+				$this->helpers[] = 'HtmlCache.HtmlCache';
+			}
+		}
 		$out = $this->controller->render($requestedPath);
 		$this->controller->Component->shutdown($this->controller);
 		$this->controller->afterFilter();

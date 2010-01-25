@@ -17,9 +17,9 @@
  * @package       mi
  * @subpackage    mi.models
  * @since         v 1.0
- * @version       $Revision: 2102 $
- * @modifiedby    $LastChangedBy: AD7six $
- * @lastmodified  $Date: 2010-01-13 14:53:06 +0100 (Wed, 13 Jan 2010) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 

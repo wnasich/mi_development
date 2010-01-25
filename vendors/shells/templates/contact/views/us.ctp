@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: us.ctp 1508 2009-09-01 21:59:41Z ad7six $ */
+<?php /* SVN FILE: $Id$ */
 echo $form->create();
 $cats = array(
 	':)' => ':) Compliment',

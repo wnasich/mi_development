@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: sections.ctp 1523 2009-09-03 20:16:33Z ad7six $ */
+<?php /* SVN FILE: $Id$ */
 if (!isset($sections)) {
 	$sections = $menu->sections();
 }

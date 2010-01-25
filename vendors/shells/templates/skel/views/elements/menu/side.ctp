@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: side.ctp 1541 2009-09-06 21:34:16Z ad7six $ */ ?>
+<?php /* SVN FILE: $Id$ */ ?>
 <div id="sideBar">
 <?php
 $topMenu = $menu->sections(0);

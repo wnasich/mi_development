@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: visualize.php 1468 2009-08-18 22:22:16Z ad7six $ */
+/* SVN FILE: $Id$ */
 
 /**
  * Visualize console task
@@ -19,9 +19,9 @@
  * @package       base
  * @subpackage    base.vendors.shells
  * @since         v 0.1
- * @version       $Revision: 1468 $
- * @modifiedby    $LastChangedBy: ad7six $
- * @lastmodified  $Date: 2009-08-19 00:22:16 +0200 (Wed, 19 Aug 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 uses('Folder','File','model'.DS.'connection_manager');

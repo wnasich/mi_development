@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>multi_delete() {
+	public function <?php echo $admin ?>multi_delete() {
 		if (!$this->data) {
 			$this->_back();
 		}

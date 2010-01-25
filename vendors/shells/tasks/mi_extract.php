@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: mi_extract.php 2108 2010-01-14 16:47:32Z AD7six $ */
+/* SVN FILE: $Id$ */
 
 /**
  * Short description for file
@@ -19,9 +19,9 @@
  * @package       base
  * @subpackage    base.vendors.shells.tasks
  * @since         v 0.1
- * @version       $Revision: 2108 $
- * @modifiedby    $LastChangedBy: AD7six $
- * @lastmodified  $Date: 2010-01-14 17:47:32 +0100 (Thu, 14 Jan 2010) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 require_once (CAKE_CORE_INCLUDE_PATH . '/cake/console/libs/tasks/extract.php');

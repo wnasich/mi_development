@@ -5,7 +5,7 @@ if (!($Inst->Behaviors->attached('Tree') || $Inst->Behaviors->attached('List')))
 }
 $this->templateVars['postActions'][$admin . 'verify'] = $admin . 'verify';
 ?>
-	function <?php echo $admin ?>verify() {
+	public function <?php echo $admin ?>verify() {
 		$return = $this-><?php echo $currentModelName ?>->verify();
 		if ($return === true) {
 			$this->Session->setFlash('Valid!');

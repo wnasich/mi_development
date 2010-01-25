@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: controller.php 1508 2009-09-01 21:59:41Z ad7six $ */
+/* SVN FILE: $Id$ */
 
 /**
  * Short description for contact_controller.php
@@ -19,9 +19,9 @@
  * @package       base
  * @subpackage    base.controllers
  * @since         v 1.0
- * @version       $Revision: 1508 $
- * @modifiedby    $LastChangedBy: ad7six $
- * @lastmodified  $Date: 2009-09-01 23:59:41 +0200 (Tue, 01 Sep 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 

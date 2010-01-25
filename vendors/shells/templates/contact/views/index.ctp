@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: index.ctp 1924 2009-11-24 22:53:36Z ad7six $ */ ?>
+<?php /* SVN FILE: $Id$ */ ?>
 <table>
 <?php
 $this->set('title_for_layout', __d('mi', 'Web Contact Messsages', true));

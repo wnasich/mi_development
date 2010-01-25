@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>index() {
+	public function <?php echo $admin ?>index() {
 		if (isset($this->SwissArmy)) {
 			$conditions = $this->SwissArmy->parseSearchFilter();
 		} else {

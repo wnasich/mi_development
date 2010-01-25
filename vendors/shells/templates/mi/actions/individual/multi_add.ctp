@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>multi_add() {
+	public function <?php echo $admin ?>multi_add() {
 		if ($this->data) {
 			$data = array();
 			foreach ($this->data as $key => $row) {
@@ -30,6 +30,6 @@
 			$this->data = array('1' => array('<?php echo $currentModelName ?>' => $this-><?php echo $currentModelName ?>->create()));
 			$this->data[1]['<?php echo $currentModelName ?>']['<?php echo ClassRegistry::init($currentModelName)->primaryKey ?>'] = null;
 		}
-		$this->_setSelects();
+		$this->_setSelects(false);
 		$this->render('<?php echo $admin ?>multi_edit');
 	}

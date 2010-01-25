@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>lookup($input = '') {
+	public function <?php echo $admin ?>lookup($input = '') {
 		$this->autoRender = false;
 		if (!$input) {
 			$input = $this->params['url']['q'];

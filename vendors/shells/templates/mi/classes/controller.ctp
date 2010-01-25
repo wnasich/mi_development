@@ -26,23 +26,23 @@ echo "<?php\n";
 ?>
 class <?php echo $controllerName; ?>Controller extends <?php echo $plugin; ?>AppController {
 
-	var $name = '<?php echo $controllerName; ?>';
+	public $name = '<?php echo $controllerName; ?>';
 
 <?php if ($isScaffold): ?>
-	var $scaffold;
+	public $scaffold;
 }
 <?php
 return;
 endif;
 ?>
-	var $components = array(<?php
+	public $components = array(<?php
 if ($components) {
 	echo "\n\t\t'" . implode( "',\n\t\t'", array_map(array('Inflector', 'camelize'), $components)) . "'";
 }
 echo "\n\t);\n";
 ?>
 
-	var $helpers = array(<?php
+	public $helpers = array(<?php
 if ($helpers) {
 	echo "\n\t\t'" . implode("',\n\t\t'", array_map(array('Inflector', 'camelize'), $helpers)) . "'";
 }
@@ -52,7 +52,12 @@ $postActions[] = $admin . 'delete';
 $postActions = array_unique(array_values($postActions));
 sort($postActions);
 ?>
-	var $postActions = array(<?php
+	public $paginate = array(
+		<?php echo $modelName ?>' => array(
+		)
+	);
+
+	public $postActions = array(<?php
 	echo "\n\t\t'" . implode( "',\n\t\t'", $postActions) . "'";
 echo "\n\t);\n\n";
 }

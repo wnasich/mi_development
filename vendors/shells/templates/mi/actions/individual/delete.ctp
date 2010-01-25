@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>delete($id = null) {
+	public function <?php echo $admin ?>delete($id = null) {
 		$this-><?php echo $currentModelName ?>->id = $id;
 		if ($id && $this-><?php echo $currentModelName ?>->exists()) {
 			$display = $this-><?php echo $currentModelName ?>->display($id);

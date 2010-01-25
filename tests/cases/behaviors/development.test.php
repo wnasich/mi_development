@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: development.test.php 1468 2009-08-18 22:22:16Z ad7six $ */
+/* SVN FILE: $Id$ */
 
 /**
  * Short description for development.test.php
@@ -19,9 +19,9 @@
  * @package              base
  * @subpackage           base.tests.cases.behaviors
  * @since                v 1.0
- * @version              $Revision: 1468 $
- * @modifiedBy           $LastChangedBy: ad7six $
- * @lastModified         $Date: 2009-08-19 00:22:16 +0200 (Wed, 19 Aug 2009) $
+ * @version              $Revision$
+ * @modifiedBy           $LastChangedBy$
+ * @lastModified         $Date$
  * @license              http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 class MessageDevelopment extends CakeTestModel {

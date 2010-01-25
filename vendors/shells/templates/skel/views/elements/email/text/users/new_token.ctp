@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: new_token.ctp 1467 2009-08-18 22:22:06Z ad7six $ */
+<?php /* SVN FILE: $Id$ */
 extract ($data) ?>
 Hello <?php echo trim($first_name); ?>,
 

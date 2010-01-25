@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>search($term = null) {
+	public function <?php echo $admin ?>search($term = null) {
 		if ($this->data) {
 			$term = trim($this->data['<?php echo $currentModelName ?>']['query']);
 			$url = array(urlencode($term));

@@ -5,7 +5,7 @@ if (!$Inst->Behaviors->attached('Tree')) {
 }
 $this->templateVars['postActions'][] = $admin . 'promote';
 ?>
-	function <?php echo $admin ?>promote($id) {
+	public function <?php echo $admin ?>promote($id) {
 		$this-><?php echo $currentModelName ?>->id = $id;
 		$node = $this-><?php echo $currentModelName ?>->read(null, $id);
 		$parent = $this-><?php echo $currentModelName ?>->getparentnode();

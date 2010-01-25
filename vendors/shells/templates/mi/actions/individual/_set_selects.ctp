@@ -1,4 +1,4 @@
-	function _setSelects($restrictToData = true) {
+	protected function _setSelects($restrictToData = true) {
 <?php
 $methodType = 'protected';
 $sets = false;
@@ -83,7 +83,7 @@ if (!$conditionSets) {
 }
 ?>
 
-	function _setSelectConditions($alias = '', $restrictToData = true, $conditions = array()) {
+	protected function _setSelectConditions($alias = '', $restrictToData = true, $conditions = array()) {
 		if (!$restrictToData) {
 			return $conditions;
 		}

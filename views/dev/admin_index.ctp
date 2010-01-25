@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: admin_index.ctp 1444 2009-08-16 21:31:04Z ad7six $ */
+<?php /* SVN FILE: $Id$ */
 $menu->del(__d('mi_development', 'Options', true));
 $menu->settings(__d('mi_development', 'Options', true));
 $menu->add(array(

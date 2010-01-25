@@ -1,4 +1,4 @@
-	function <?php echo $admin ?>multi_edit() {
+	public function <?php echo $admin ?>multi_edit() {
 		if ($this->data) {
 			$data = array();
 			foreach ($this->data as $key => $row) {
@@ -34,5 +34,5 @@
 			unset($this->data[0]);
 			$this->Session->write('<?php echo $currentModelName ?>.paging', $this->params['paging']);
 		}
-		$this->_setSelects();
+		$this->_setSelects(false);
 	}

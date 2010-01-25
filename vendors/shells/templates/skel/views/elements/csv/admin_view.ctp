@@ -1,4 +1,4 @@
-<?php /* SVN FILE: $Id: admin_view.ctp 1508 2009-09-01 21:59:41Z ad7six $ */
+<?php /* SVN FILE: $Id$ */
 header('Content-Disposition: attachment; filename="' . $modelClass . '_' . implode($this->passedArgs, '_') . '.csv"');
 foreach ($data as $model => $vals) {
 	echo $model . "\r\n";

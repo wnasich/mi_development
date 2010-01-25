@@ -7,7 +7,7 @@ class AppController extends Controller {
  * @var array
  * @access public
  */
-	var $components = array(
+	public $components = array(
 		'Mi.MiSession',
 		'Mi.SwissArmy' => array('autoLayout' => true),
 		'Mi.Seo',
@@ -22,11 +22,12 @@ class AppController extends Controller {
  * @var array
  * @access public
  */
-	var $helpers = array(
+	public $helpers = array(
 		'Mi.MiForm',
 		'Mi.MiHtml',
-		'MiAsset.Asset',
 		'Mi.Menu',
+		'MiAsset.Asset',
+		'MiEnums.Enum',
 		'Time',
 		'Text',
 	);
@@ -37,7 +38,7 @@ class AppController extends Controller {
  * @var string 'Mi'
  * @access public
  */
-	var $view = 'Mi.Mi';
+	public $view = 'Mi.Mi';
 
 /**
  * namedParams property
@@ -45,7 +46,7 @@ class AppController extends Controller {
  * @var bool true
  * @access public
  */
-	var $namedParams = true;
+	public $namedParams = true;
 
 /**
  * postActions property
@@ -53,7 +54,7 @@ class AppController extends Controller {
  * @var array
  * @access public
  */
-	var $postActions = array(
+	public $postActions = array(
 		'admin_delete'
 	);
 
@@ -89,10 +90,11 @@ class AppController extends Controller {
  * Put the toolbar first so that initialization of other components is included in the
  * 'Component Initialization' timer
  *
+ * @TODO change visibility
  * @return void
  * @access private
  */
-	function __mergeVars() {
+	public function __mergeVars() {
 		parent::__mergeVars();
 		if (!Configure::read() || !isset($this->components['DebugKit.Toolbar'])) {
 			return;
@@ -110,7 +112,7 @@ class AppController extends Controller {
  * @return void
  * @access public
  */
-	function log($message, $type = null) {
+	public function log($message, $type = null) {
 		if (!class_exists('RequestHandlerComponent')) {
 			App::import('Component', 'RequestHandler');
 		}
@@ -132,17 +134,29 @@ class AppController extends Controller {
  * @return void
  * @access public
  */
-	function beforeFilter() {
+	public function beforeFilter() {
 		if (isset($this->SwissArmy)) {
 			$this->SwissArmy->setDefaultPageTitle();
 			$this->SwissArmy->handlePostActions();
 		}
 		$this->Auth->authorize = 'controller';
-		if ($this->name === 'Pages') {
-			$this->Auth->allow('display');
-		}
 		$this->Auth->logoutRedirect = '/';
 		if (!empty($this->params['admin'])) {
+			$this->SwissArmy->loadComponent('MiPanel.MiPanel');
+		}
+	}
+
+/**
+ * If it's an admin call - load the MiPanel component if possible to get instant panel
+ * styles
+ *
+ * @return void
+ * @access public
+ */
+	function beforeRender() {
+		if (!empty($this->params['admin']) &&
+			empty($this->params['isAjax']) &&
+			App::import('Component', 'MiPanel.MiPanel')) {
 			$this->SwissArmy->loadComponent('MiPanel.MiPanel');
 		}
 	}
@@ -159,7 +173,7 @@ class AppController extends Controller {
  * @return void
  * @access public
  */
-	function redirect($url, $code = null, $exit = true, $force = false) {
+	public function redirect($url, $code = null, $exit = true, $force = false) {
 		if (isset($this->SwissArmy)) {
 			if ($this->SwissArmy->redirect($url, $code, $exit, $force) && $exit) {
 				$this->_stop();
@@ -176,7 +190,7 @@ class AppController extends Controller {
  * @return void
  * @access public
  */
-	function isAuthorized() {
+	public function isAuthorized() {
 		if (isset($this->params['admin']) && $this->Auth->user('group') == 'Admin') {
 			return true;
 		}
@@ -194,7 +208,7 @@ class AppController extends Controller {
  * @return void
  * @access protected
  */
-	function _back($steps = 1, $force = false) {
+	public function _back($steps = 1, $force = false) {
 		if (isset($this->SwissArmy)) {
 			if (($force || in_array($this->action, $this->postActions)) && $this->RequestHandler->isAjax()) {
 				$url = $this->SwissArmy->back($steps, null, false);
@@ -215,7 +229,7 @@ class AppController extends Controller {
  * @return void
  * @access protected
  */
-	function _blackHole($reason = null) {
+	public function _blackHole($reason = null) {
 		if (isset($this->SwissArmy)) {
 			return $this->SwissArmy->blackHole($reason);
 		}
@@ -230,7 +244,7 @@ class AppController extends Controller {
  * @return void
  * @access protected
  */
-	function _setSelects($params = array()) {
+	public function _setSelects($params = array()) {
 		if (isset($this->SwissArmy)) {
 			$this->SwissArmy->setSelects($params);
 			return true;

@@ -5,7 +5,7 @@ if (!($Inst->Behaviors->attached('Tree') || $Inst->Behaviors->attached('List')))
 }
 $this->templateVars['postActions'][] = $admin . 'move_up';
 ?>
-	function <?php echo $admin ?>move_up($id = null, $steps = 1) {
+	public function <?php echo $admin ?>move_up($id = null, $steps = 1) {
 		$this-><?php echo $currentModelName ?>->id = $id;
 		if ($id && $this-><?php echo $currentModelName ?>->exists()) {
 			$display = $this-><?php echo $currentModelName ?>->display($id);

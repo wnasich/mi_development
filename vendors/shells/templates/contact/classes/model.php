@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: model.php 1769 2009-11-03 00:41:54Z ad7six $ */
+/* SVN FILE: $Id$ */
 
 /**
  * Short description for contact.php
@@ -19,9 +19,9 @@
  * @package       base
  * @subpackage    base.models
  * @since         v 1.0
- * @version       $Revision: 1769 $
- * @modifiedby    $LastChangedBy: ad7six $
- * @lastmodified  $Date: 2009-11-03 01:41:54 +0100 (Tue, 03 Nov 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 
