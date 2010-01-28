@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id$ */
+
 
 /**
  * Short description for development.test.php
@@ -13,13 +13,11 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
  * @copyright            Copyright (c) 2008, Andy Dawson
  * @link                 www.ad7six.com
  * @package              base
  * @subpackage           base.tests.cases.behaviors
  * @since                v 1.0
- * @version              $Revision$
  * @modifiedBy           $LastChangedBy$
  * @lastModified         $Date$
  * @license              http://www.opensource.org/licenses/mit-license.php The MIT License

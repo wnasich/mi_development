@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id$ */
+
 
 /**
  * Enums config file
@@ -15,15 +15,11 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
  * @copyright     Copyright (c) 2009, Andy Dawson
  * @link          www.ad7six.com
  * @package       base
  * @subpackage    base.config
  * @since         v 1.0 (08-Jun-2009)
- * @version       $Revision$
- * @modifiedby    $LastChangedBy$
- * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 $config = array(

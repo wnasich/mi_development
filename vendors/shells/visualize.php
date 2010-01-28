@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id$ */
+
 
 /**
  * Visualize console task
@@ -13,15 +13,11 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
  * @copyright     Copyright (c) Tomenko Yevgeny
  * @link          www.ad7six.com
  * @package       base
  * @subpackage    base.vendors.shells
  * @since         v 0.1
- * @version       $Revision$
- * @modifiedby    $LastChangedBy$
- * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 uses('Folder','File','model'.DS.'connection_manager');
