@@ -50,7 +50,7 @@ class AppModel extends Model {
 			App::import('Component', 'RequestHandler');
 		}
 		if (!is_string($message)) {
-			$message = print_r($message, true);
+			$message = print_r($message, true); //@ignore
 		}
 		parent::log(RequestHandlerComponent::getClientIP() . "\t" . $message, $type);
 	}
@@ -81,6 +81,7 @@ class AppModel extends Model {
  * @access protected
  */
 	function _clearCache($type = null) {
+		exec('rm -rf ' . CACHE . 'data/*');
 		clearCache(null, 'views');
 		clearCache(null, 'views', '');
 		parent::_clearCache($type);

@@ -129,7 +129,6 @@ class AppController extends Controller {
  * Set a default page title from the po file
  * Set to ajax layout if it's a popup request
  * Also set the requirePost property of the security component to the controller's postActions property
- * And finally, if it's an admin request - use the MiPanel plugin/theme
  *
  * @return void
  * @access public
@@ -141,9 +140,6 @@ class AppController extends Controller {
 		}
 		$this->Auth->authorize = 'controller';
 		$this->Auth->logoutRedirect = '/';
-		if (!empty($this->params['admin'])) {
-			$this->SwissArmy->loadComponent('MiPanel.MiPanel');
-		}
 	}
 
 /**
@@ -158,6 +154,7 @@ class AppController extends Controller {
 			empty($this->params['isAjax']) &&
 			App::import('Component', 'MiPanel.MiPanel')) {
 			$this->SwissArmy->loadComponent('MiPanel.MiPanel');
+			$this->MiPanel->setPanelPaths();
 		}
 	}
 

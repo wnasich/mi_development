@@ -627,6 +627,27 @@ class UsersController extends AppController {
 	}
 
 /**
+ * postLogin method
+ *
+ * Called automatically when a user logs in normally, or by cookie
+ *
+ * @param array $userData array()
+ * @param mixed $mode 'form' or 'cookie'
+ * @return void
+ * @access public
+ */
+	function postLogin($userData = array(), $mode = null) {
+		static $run;
+		if($run) {
+			return;
+		}
+		$run = true;
+		$this->User->id = $id = $this->Auth->user('id');
+		$display = $this->User->display();
+		/* ... */
+	}
+
+/**
  * blackHole method. Handles form submissions deemed invalid by the security component
  *
  * If a login is blackholed, there are 2 possible causes

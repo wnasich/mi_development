@@ -19,3 +19,11 @@ if (isset($paths)) {
 $trace = Debugger::trace();
 $trace = preg_replace('@.*Object::cakeError[^\n]*@s', '', $trace);
 debug($trace); // @ignore
+?>
+<h3>What files have been loaded:</h3>
+<?php
+/**
+ * Strip the error processing from the trace
+ */
+$files = get_included_files();
+debug($files); // @ignore
