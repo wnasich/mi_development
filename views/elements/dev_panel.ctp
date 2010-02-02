@@ -144,11 +144,22 @@ form.mi_development div.submit input {
  * @link http://gist.github.com/221905
  * @link http://paulirish.com/2008/how-to-iterate-quickly-when-debugging-css/
  */
-$(document).keyup(function(e){
-    if ( e.which == 87 && e.altKey){
-        var h,a,f;a=document.getElementsByTagName('link');for(h=0;h<a.length;h++){f=a[h];if(f.rel.toLowerCase().match(/stylesheet/)&&f.href){var g=f.href.replace(/(&|\?)forceReload=\d+/,'');f.href=g+(g.match(/\?/)?'&':'?')+'forceReload='+(new Date().valueOf())}}
-    }
-});
+(function($) {$(function() {
+	$(document).bind('keyup', function(e) {
+		if ( e.which == 87 && e.altKey) {
+			console.log('reloading css files');
+			var h,a,f;
+			a=document.getElementsByTagName('link');
+			for(h=0;h<a.length;h++){
+				f=a[h];
+				if(f.rel.toLowerCase().match(/stylesheet/)&&f.href) {
+					var g=f.href.replace(/(&|\?)forceReload=\d+/,'');
+					f.href=g+(g.match(/\?/)?'&':'?')+'forceReload='+(new Date().valueOf())
+				}
+			}
+		}
+	});
+});})(jQuery)
 </script>
 <?php
 echo $form->create(false, array(
