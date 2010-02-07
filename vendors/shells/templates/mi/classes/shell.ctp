@@ -1,10 +1,19 @@
 <?php
 class MyNewShell extends Shell {
-	protected $name = 'MyNew';
-	protected $version = '0.1';
+
+	public $name = 'MyNew';
+
 	public $settings = array(
 		'quiet' => false,
 	);
+
+	protected $version = '0.1';
+
+	protected $_name = null;
+
+	protected $_messages = array(
+	);
+
 	function help()  {
 		$exclude = array('main');
 		$shell = get_class_methods('Shell');
@@ -28,15 +37,30 @@ class MyNewShell extends Shell {
 		$this->hr();
 
 	}
+
 	function startup() {
 		$this->_welcome();
 	}
 
 	function initialize() {
+		$this->_name = Inflector::underscore($this->name);
+		if (file_exists('config' . DS . $this->_name . '.php')) {
+			include('config' . DS . $this->_name . '.php');
+			if (!empty($config)) {
+				$this->settings = am($this->settings, $config);
+			}
+		} elseif (file_exists(APP . 'config' . DS . $this->_name . '.php')) {
+			include(APP . 'config' . DS . $this->_name . '.php');
+			if (!empty($config)) {
+				$this->settings = am($this->settings, $config);
+			}
+		}
 		if (!empty($this->params['q']) || !empty($this->params['quiet']) || !empty($this->params['-quiet'])) {
 			$this->settings['quiet'] = true;
 		}
+		$this->_loadModels();
 	}
+
 	function main() {
 		return $this->help();
 	}
