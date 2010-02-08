@@ -96,7 +96,7 @@ class MiExtractTask extends ExtractTask {
 				$this->params['plugin'] = basename($base);
 			}
 			$this->params['paths'] = $base;
-			$this->params['output'] = $base . 'locale' . DS;
+			$this->params['output'] = rtrim($base, DS) . DS . 'locale' . DS;
 
 			foreach($this->settings['miMethods'] as $method => $config) {
 				if (is_numeric($method)) {
