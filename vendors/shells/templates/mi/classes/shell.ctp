@@ -1,6 +1,6 @@
 <?php
 class MyNewShell extends Shell {
-	protected $name = 'MyNew';
+	public $name = 'MyNew';
 	protected $version = '0.1';
 	public $settings = array(
 		'quiet' => false,
@@ -11,6 +11,7 @@ class MyNewShell extends Shell {
 		$methods = get_class_methods($this);
 		$methods = array_diff($methods, $shell);
 		$methods = array_diff($methods, $exclude);
+		$help = array();
 		foreach ($methods as $method) {
 			if (!isset($help[$method]) && $method[0] !== '_') {
 				$help[$method] = $method;
