@@ -113,9 +113,9 @@ echo $form->end(__('Submit', true));
 <?php if (!empty($multiTab)) : ?>
 $asset->js('jquery-ui.tabs', $this->name);
 $asset->codeBlock('
-  $(document).ready(function(){
-    $("#tabWrap").tabs();
-  });
+	$(document).ready(function(){
+		$("#tabWrap").tabs();
+	});
 ');
 <?php endif;
 if ($wysiwyg) : ?>
