@@ -70,6 +70,7 @@ if (isset($associations['belongsTo'])) {
 		);
 	}
 }
+
 if ($plugin) {
 	$plugin .= '.';
 }
@@ -88,7 +89,7 @@ echo "<?php\r\n"; ?>
 extract($data);
 <?php echo "\$this->set('title_for_layout', \${$modelClass}['$displayField']);\r\n"; ?>
 <?php echo "?>\r\n"; ?>
-<?php 
+<?php
 if (in_array('foreign_id', $fields)) {
 	echo "\t\$linkedController = Inflector::underscore(Inflector::pluralize(\${$modelClass}['model']));\r\n";
 }
@@ -139,7 +140,22 @@ foreach ($fields as $field):
 		}
 	}
 	$stacks[$stack]["<?php $key ?>"] = "<?php echo $display; ?>";
-endforeach; 
+endforeach;
+if (isset($associations['hasAndBelongsToMany'])) {
+	foreach ($associations['hasAndBelongsToMany'] as $alias => $details) {
+		$controller = $details['controller'];
+		$key = Inflector::camelize($controller);
+		$key[0] = strtolower($key[0]);
+		$stacks['large'][Inflector::humanize($controller)] = "<?php
+			\$out = array();
+			foreach(\${$key} as \$id => \$display) {
+				\$out[] = \$html->link(\$display, array('controller' => '$controller', \$id));
+			}
+			echo implode(', ', \$out);
+		?>";
+	}
+}
+
 $zebra = 'odd';
 $chunks = array();
 foreach($stacks as $stack => $fields) {
@@ -167,7 +183,7 @@ foreach($stacks as $stack => $fields) {
 			echo "\t</div>\r\n";
 		}
 		echo "</div>\r\n";
-		$zebra = $zebra=='odd'?'even':'odd';	
+		$zebra = $zebra=='odd'?'even':'odd';
 	}
 }
 echo "<?php\r\n"; ?>

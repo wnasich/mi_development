@@ -38,6 +38,11 @@ if (isset($associations['belongsTo'])) {
 		);
 	}
 }
+if (isset($associations['hasAndBelongsToMany'])) {
+	foreach ($associations['hasAndBelongsToMany'] as $alias => $details) {
+		$fields[] = $alias;
+	}
+}
 foreach($fields as $i => $field) {
 	if (ignore4Form($field, $action, $primaryKey)) {
 		unset($fields[$i]);
@@ -81,6 +86,10 @@ echo $form->inputs(array(
 	'legend' => false,
 <?php
 	foreach ($fields as $field) {
+		if (empty($schema[$field]['type'])) {
+			echo "\t'$field',\r\n";
+			continue;
+		}
 		if ($schema[$field]['type'] === 'text') {
 			$wysiwyg[] = '#' . Inflector::classify($modelClass . '_' . $field);
 		}

@@ -119,7 +119,7 @@ if (in_array('foreign_id', $fields)) {
 			$html->link(${$linkedController}[$<?php echo $modelClass ?>['foreign_id']], array('controller' => $linkedController, 'action' => 'view', $<?php echo $modelClass ?>['foreign_id'])),
 <?php elseif (isset($keyFields[$field])): ?>
 			<?php $alias = Inflector::variable(Inflector::pluralize($keyFields[$field]['alias']));
-			echo "\${$alias}?\${$alias}[\${$modelClass}['$field']]:'',\r\n"; ?>
+			echo "!empty(\${$alias}['$modelClass'])?\${$alias}[\${$modelClass}['$field']]:'',\r\n"; ?>
 <?php elseif (!in_array($schema[$field]['type'], array('text'))) : ?>
 <?php if (in_array($field, array('ip', 'signup_ip'))) : ?>
 			<?php echo "long2ip(\${$modelClass}['$field'])" . ",\r\n"; ?>
