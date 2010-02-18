@@ -113,7 +113,7 @@ echo $form->end(__('Submit', true));
 <?php if (!empty($multiTab)) : ?>
 $asset->js('jquery-ui.tabs', $this->name);
 $asset->codeBlock('
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$("#tabWrap").tabs();
 	});
 ');
