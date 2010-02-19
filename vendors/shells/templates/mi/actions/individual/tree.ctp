@@ -5,7 +5,7 @@ if (!$Inst->Behaviors->attached('Tree')) {
 }
 ?>
 	public function <?php echo $admin ?>tree($id = null, $showAll = true) {
-		$this->helpers[] = 'Tree';
+		$this->helpers[] = 'Mi.Tree';
 		$order = <?php echo $currentModelName ?> . '.lft';
 		if ($this->showAll) {
 			if (!$id) {

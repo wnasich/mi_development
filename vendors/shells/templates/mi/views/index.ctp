@@ -85,7 +85,7 @@ if (in_array('foreign_id', $fields)) {
 ?>
 <?php if (($Inst->Behaviors->attached('Tree') || $Inst->Behaviors->attached('List'))) : ?>
 	$actions = array();
-	if ($<?php echo $modelClass ?>['order'] > 1) {
+	if ($<?php echo $modelClass ?>['<?php echo $Inst->Behaviors->attached('Tree')?'lft':'order'; ?>'] > 1) {
 		$actions[] = $html->link(' ', array('action' => 'move_up',  <?php echo "\${$modelClass}['$primaryKey']"; ?>),
 			array('class' => 'mini-icon mini-arrowthick-1-n', 'title' => __('Move Up', true)));
 	}

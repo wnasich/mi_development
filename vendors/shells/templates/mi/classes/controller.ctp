@@ -53,13 +53,13 @@ $postActions = array_unique(array_values($postActions));
 sort($postActions);
 ?>
 	public $paginate = array(
-		<?php echo $modelName ?>' => array(
+		'<?php echo $currentModelName ?>' => array(
 		)
 	);
 
 	public $postActions = array(<?php
 	echo "\n\t\t'" . implode( "',\n\t\t'", $postActions) . "'";
-echo "\n\t);\n\n";
+echo "\n\t);\n";
 }
 echo $actions;
 if ($plugin) {
