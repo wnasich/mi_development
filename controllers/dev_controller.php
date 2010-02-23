@@ -107,6 +107,7 @@ class DevController extends AppController {
  */
 	function admin_build($what = '*') {
 		if ($this->data) {
+			unset($this->data['App']);
 			$whats = array_keys(array_filter($this->data));
 		} else {
 			$whats = array($what);
@@ -130,6 +131,7 @@ class DevController extends AppController {
  */
 	function admin_clear($what = 'TMP') {
 		if ($this->data) {
+			unset($this->data['App']);
 			$whats = array_keys(array_filter($this->data));
 		} else {
 			$whats = array($what);
@@ -209,6 +211,7 @@ class DevController extends AppController {
  */
 	function admin_upgrade($what = 'app', $name = null) {
 		if ($this->data) {
+			unset($this->data['App']);
 			foreach($this->data as $type => $items) {
 				if (!is_array($items)) {
 					continue;
