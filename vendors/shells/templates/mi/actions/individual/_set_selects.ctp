@@ -70,8 +70,11 @@ foreach (array('hasOne', 'hasMany', 'belongsTo', 'hasAndBelongsToMany') as $type
 		} else {
 			echo "\t\t\$conditions = \$this->_setSelectConditions('$model', \$restrictToData);\n";
 			if (isset($Inst->hasAndBelongsToMany[$model])) {
-				echo "\t\t\$recursive = 0;\n";
-				echo "\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions', 'recursive'));\n\n";
+				echo "\t\t\$sets['$key'] = array();\n";
+				echo "\t\tif (\$conditions !== false) {\n";
+				echo "\t\t\t\$recursive = 0;\n";
+				echo "\t\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions', 'recursive'));\n\n";
+				echo "\t\t}\n";
 			} else {
 				echo "\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions'));\n\n";
 			}
@@ -115,6 +118,9 @@ echo "\t\t\tdefault:\n";
 $underscored = Inflector::underscore($currentModelName);
 echo "\t\t\t\t\$conditions[\"\$alias.{$underscored}_id\"] = Set::extract(\$this->data, '/$currentModelName/id');\n";
 ?>
+		}
+		if (!array_filter($conditions)) {
+			return false;
 		}
 		return $conditions;
 	}
