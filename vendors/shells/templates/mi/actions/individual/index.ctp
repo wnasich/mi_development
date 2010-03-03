@@ -2,7 +2,7 @@
 $Inst =& ClassRegistry::init($currentModelName);
 ?>
 	public function <?php echo $admin ?>index() {
-<?php if (!$Inst->Behaviors->attached('Tree')): ?>
+<?php if ($Inst->Behaviors->attached('Tree')): ?>
 		$this->helpers[] = 'Mi.Tree';
 <?php endif; ?>
 		if (isset($this->SwissArmy)) {
