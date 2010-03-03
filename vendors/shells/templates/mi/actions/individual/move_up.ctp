@@ -1,6 +1,6 @@
 <?php
 $Inst =& ClassRegistry::init($currentModelName);
-if (!($Inst->Behaviors->attached('Tree') || $Inst->Behaviors->attached('List'))) {
+if (!$Inst->Behaviors->attached('Tree') /* || $Inst->Behaviors->attached('List') */) {
 	return;
 }
 $this->templateVars['postActions'][] = $admin . 'move_up';
