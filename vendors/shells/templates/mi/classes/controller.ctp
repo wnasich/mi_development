@@ -46,12 +46,13 @@ echo "\n\t);\n";
 if ($helpers) {
 	echo "\n\t\t'" . implode("',\n\t\t'", array_map(array('Inflector', 'camelize'), $helpers)) . "'";
 }
-echo "\n\t);\n\n";
+echo "\n\t);\n";
 if (!empty($postActions)) {
 $postActions[] = $admin . 'delete';
 $postActions = array_unique(array_values($postActions));
 sort($postActions);
 ?>
+
 	public $paginate = array(
 		'<?php echo $currentModelName ?>' => array(
 		)
