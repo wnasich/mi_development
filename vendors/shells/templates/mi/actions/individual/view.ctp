@@ -1,4 +1,5 @@
 	public function <?php echo $admin ?>view($id = null) {
+		$this-><?php echo $currentModelName ?>->recursive = 0;
 		$this->data = $this-><?php echo $currentModelName ?>->read(null, $id);
 <?php
 $Inst =& ClassRegistry::init($currentModelName);
@@ -9,9 +10,9 @@ if ($Inst->hasField('foreign_id')) : ?>
 		$this->set($alias, $values);
 <?php endif; ?>
 
-		$this->_setSelects();
 		if(!$this->data) {
 			$this->Session->setFlash(__('Invalid <?php echo low($singularHumanName) ?>', true));
 			return $this->_back();
 		}
+		$this->_setSelects();
 	}
