@@ -12,7 +12,7 @@ if ($Inst->Behaviors->attached('Tree')) {
 	echo "\t\t\$sets['parents'] = \$this->{$currentModelName}->generateTreeList();\n";
 }
 if ($Inst->Behaviors->attached('Enum')) {
-	foreach ($Inst->actsAs['MiEnums.Enum'] as $enumeratedField) {
+	foreach (array_unique($Inst->actsAs['MiEnums.Enum']) as $enumeratedField) {
 		$sets = true;
 		$key = Inflector::variable(Inflector::pluralize(preg_replace('/_id$/', '', $enumeratedField)));
 		echo "\t\t\$sets['$key'] = \$this->{$currentModelName}->enumValues('$enumeratedField');\n";
@@ -42,7 +42,6 @@ if ($Inst->hasField('foreign_id')) {
 			$models = array_values(MiCache::mi('models'));
 			$sets['models'] = array_combine($models, $models);
 		}
-	function _setSelects($restrictToData = true) {
 <?php
 }
 $conditionSets = array();
