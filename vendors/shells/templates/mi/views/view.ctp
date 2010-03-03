@@ -100,12 +100,15 @@ foreach ($fields as $field):
 	}
 	$stack = 'default';
 	$tr = array();
+	$defensive = false;
 	if (isset($keyFields[$field])) {
 		$humanizedField = Inflector::Humanize(str_replace('_id', '', $field));
 		$key = "__d('field_names', '$singularHumanName $humanizedField')";
-		$display = "\${$keyFields[$field]['alias']}?\${$keyFields[$field]['alias']}['{$keyFields[$field]['displayField']}']:''";
-		$goto[] = array('title' => "\${$keyFields[$field]['alias']}['{$keyFields[$field]['displayField']}']",
-			'controller' => $keyFields[$field]['controller'], 'id' => "\${$singularVar}['$field']");
+		$variable = Inflector::variable(Inflector::pluralize($keyFields[$field]['alias']));
+		$display = "\${$variable}[\${$modelClass}['$field']]";
+		$goto[] = array('title' => $display, 'controller' => $keyFields[$field]['controller'],
+			'id' => "\${$singularVar}['$field']");
+		$defensive = true;
 	} elseif ($field === 'foreign_id') {
 		$key = "__('Linked to')";
 		$display = "\$html->link(\${\$linkedController}[\${$singularVar}['foreign_id']], array('controller' => \$linkedController, 'action' => 'view', \${$singularVar}['foreign_id']))";
@@ -139,19 +142,26 @@ foreach ($fields as $field):
 			$stack = 'default';
 		}
 	}
-	$stacks[$stack]["<?php $key ?>"] = "<?php echo $display; ?>";
+
+	if ($defensive) {
+		$stacks[$stack]["<?php $key ?>"] = "<?php echo !empty($display)?$display:'-'; ?>";
+	} else {
+		$stacks[$stack]["<?php $key ?>"] = "<?php echo $display; ?>";
+	}
 endforeach;
 if (isset($associations['hasAndBelongsToMany'])) {
 	foreach ($associations['hasAndBelongsToMany'] as $alias => $details) {
 		$controller = $details['controller'];
-		$key = Inflector::camelize($controller);
+		$key = Inflector::variable(Inflector::pluralize($alias));
 		$key[0] = strtolower($key[0]);
-		$stacks['large'][Inflector::humanize($controller)] = "<?php
-			\$out = array();
-			foreach(\${$key} as \$id => \$display) {
-				\$out[] = \$html->link(\$display, array('controller' => '$controller', \$id));
+		$stacks['large'][Inflector::humanize($key)] = "<?php
+			if (!empty(\${$key})) {
+				\$out = array();
+				foreach(\${$key} as \$id => \$display) {
+					\$out[] = \$html->link(\$display, array('controller' => '$controller', \$id));
+				}
+				echo implode(', ', \$out);
 			}
-			echo implode(', ', \$out);
 		?>";
 	}
 }
