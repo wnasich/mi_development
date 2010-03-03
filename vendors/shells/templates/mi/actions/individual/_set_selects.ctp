@@ -113,7 +113,7 @@ foreach($conditionSets as $key => $code) {
 }
 echo "\t\t\tdefault:\n";
 $underscored = Inflector::underscore($currentModelName);
-echo "\t\t\t\t\$conditions[\"\$alias.{$underscored}id\"] = Set::extract(\$this->data, '/$currentModelName/id');\n";
+echo "\t\t\t\t\$conditions[\"\$alias.{$underscored}_id\"] = Set::extract(\$this->data, '/$currentModelName/id');\n";
 ?>
 		}
 		return $conditions;
