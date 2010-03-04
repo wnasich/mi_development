@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Short description for file
  *
@@ -329,6 +327,18 @@ class MiExtractTask extends ExtractTask {
 	}
 
 /**
+ * exec method
+ *
+ * @param mixed $cmd
+ * @param mixed $out null
+ * @return void
+ * @access protected
+ */
+	protected function _exec($cmd, &$out = null) {
+		return Mi::exec($cmd, $out);
+	}
+
+/**
  * updatePoFiles method create or update existing po files
  *
  * @param mixed $localeFolders
@@ -352,7 +362,7 @@ class MiExtractTask extends ExtractTask {
 						$this->out(sprintf(__d('mi_development', 'Auto Updating %s po files', true), $name));
 						$command = String::insert($this->settings['cmd']['msgmerge'], compact('localeFolder', 'name'));
 						$this->out($command);
-						exec($command);
+						$this->_exec($command);
 					}
 				}
 			}
@@ -376,7 +386,7 @@ class MiExtractTask extends ExtractTask {
 			}
 			$command = String::insert($command, compact('po'));
 			$this->out($command);
-			exec($command);
+			$this->_exec($command);
 			return;
 		}
 		$this->out(sprintf('Copying %s file to %s locale', $pot, $locale));

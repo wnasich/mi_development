@@ -130,7 +130,7 @@ class TidyHelper extends AppHelper {
 		$File->write($out);
 		$path = $File->pwd();
 		$errors = $path . '.err';
-		exec("tidy -eq -utf8 -f $errors $path");
+		$this->_exec("tidy -eq -utf8 -f $errors $path");
 		$File->delete();
 
 		if (!file_exists($errors)) {
@@ -140,5 +140,17 @@ class TidyHelper extends AppHelper {
 		$errors = $Error->read();
 		$Error->delete();
 		return $errors;
+	}
+
+/**
+ * exec method
+ *
+ * @param mixed $cmd
+ * @param mixed $out null
+ * @return void
+ * @access protected
+ */
+	protected function _exec($cmd, &$out = null) {
+		return Mi::exec($cmd, $out);
 	}
 }

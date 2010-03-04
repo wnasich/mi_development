@@ -321,7 +321,7 @@ class DevController extends AppController {
 				}
 				$command = 'mysqldump ' . implode($params, ' ') . ' ' . $database .
 					' --add-drop-table --compact=true --disable-keys >> ' . $file;
-				$this->__system($command);
+				$this->_exec($command);
 			}
 			$databases[$database] = true;
 		}
@@ -382,7 +382,7 @@ foreach ($_sources as $table) {
 		$command = '';
 		if ($multiFile && $method != 'zip') {
 			if (!file_exists($dir . '.tar')) {
-				$this->__system('cd ' . $dir . ' &&  tar -cf ' . $dir . '.tar *');
+				$this->_exec('cd ' . $dir . ' &&  tar -cf ' . $dir . '.tar *');
 			}
 			$dir .= '.tar';
 			$name .= '.tar';
@@ -413,9 +413,21 @@ foreach ($_sources as $table) {
 			break;
 		}
 		if ($command && !file_exists($file)) {
-			$this->__system($command);
+			$this->_exec($command);
 		}
 		return compact('dir', 'file', 'extension', 'name');
+	}
+
+/**
+ * exec method
+ *
+ * @param mixed $cmd
+ * @param mixed $out null
+ * @return void
+ * @access protected
+ */
+	protected function _exec($cmd, &$out = null) {
+		return Mi::exec($cmd, $out);
 	}
 
 /**
@@ -432,23 +444,7 @@ foreach ($_sources as $table) {
 			$cake .= '.bat';
 		}
 		$command = "cd $app && $cake $command -q";
-		list($return, $out) = $this->__system($command);
+		$this->_exec($command, $out);
 		return $out;
-	}
-
-/**
- * system method
- *
- * Perform and record a system call
- *
- * @param mixed $command
- * @param mixed $output
- * @return void
- * @access private
- */
-	function __system($command, &$output = null) {
-		$this->log($command, 'system_calls');
-		exec($command, $output, $return);
-		return array($return, $output);
 	}
 }

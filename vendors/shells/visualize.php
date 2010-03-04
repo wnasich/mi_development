@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Visualize console task
  *
@@ -135,7 +133,7 @@ class VisualizeShell extends Shell {
 		$command = "{$command} -Tpng  -o\"{$imgFile}\" \"{$dotFile}\"";
 		$this->__log->append($command . "\r\n");
 		ob_start();
-		system($command, $return);
+		Mi::exec($command, $return);
 		ob_clean();
 		if ($return != 0) {
 			$this->out("Command Error ($return) for command:\n");
