@@ -7,6 +7,13 @@ if ($Inst->Behaviors->attached('Tree')) {
 	$sets = true;
 	echo "\t\t\$sets['parents'] = \$this->{$currentModelName}->generateTreeList();\n";
 }
+?>
+
+		if (isset($this->data['<?php echo $currentModelName ?>']['<?php echo $Inst->primaryKey ?>'])) {
+			$restrictToData = true; // Use Jquery UI autocomplete
+		}
+
+<?php
 if ($Inst->Behaviors->attached('Enum')) {
 	foreach (array_unique($Inst->actsAs['MiEnums.Enum']) as $enumeratedField) {
 		$sets = true;
@@ -15,10 +22,6 @@ if ($Inst->Behaviors->attached('Enum')) {
 	}
 }
 ?>
-		if (isset($this->data['<?php echo $currentModelName ?>']['<?php echo $Inst->primaryKey ?>'])) {
-			$restrictToData = true; // Use Jquery UI autocomplete
-		}
-
 <?php
 if ($Inst->hasField('foreign_id')):
 	$sets = true;
@@ -81,8 +84,8 @@ foreach (array('hasOne', 'hasMany', 'belongsTo', 'hasAndBelongsToMany') as $type
 				echo "\t\tif (\$restrictToData && \$conditions === false) {\n";
 				echo "\t\t\t\$sets['$key'] = array();\n";
 				echo "\t\t} else {\n";
-				echo "\t\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions'));\n\n";
-				echo "\t\t}\n";
+				echo "\t\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions'));\n";
+				echo "\t\t}\n\n";
 			}
 		}
 	}
