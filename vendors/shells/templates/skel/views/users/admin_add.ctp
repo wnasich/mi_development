@@ -26,7 +26,7 @@ echo $form->inputs(array(
 ));
 echo '</div>';
 echo $form->end(__('Submit', true));
-$asset->js('jquery-ui.tabs', $this->name);
+$asset->js('jquery-ui', $this->name);
 $asset->codeBlock('
 	$(document).ready(function(){
 		$("#tabWrap").tabs();
