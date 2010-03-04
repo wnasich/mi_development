@@ -3,10 +3,6 @@
 $methodType = 'protected';
 $sets = false;
 $Inst =& ClassRegistry::init($currentModelName);
-if (empty($Inst->Behaviors)) {
-	echo "\t}";
-	return;
-}
 if ($Inst->Behaviors->attached('Tree')) {
 	$sets = true;
 	echo "\t\t\$sets['parents'] = \$this->{$currentModelName}->generateTreeList();\n";
@@ -18,7 +14,13 @@ if ($Inst->Behaviors->attached('Enum')) {
 		echo "\t\t\$sets['$key'] = \$this->{$currentModelName}->enumValues('$enumeratedField');\n";
 	}
 }
-if ($Inst->hasField('foreign_id')) {
+?>
+		if (isset($this->data['<?php echo $currentModelName ?>']['<?php echo $Inst->primaryKey ?>'])) {
+			$restrictToData = true; // Use Jquery UI autocomplete
+		}
+
+<?php
+if ($Inst->hasField('foreign_id')):
 	$sets = true;
 ?>
 		if (is_array($this->data) && isset($this->data[0]) && is_array($this->data[0])) {
@@ -43,7 +45,7 @@ if ($Inst->hasField('foreign_id')) {
 			$sets['models'] = array_combine($models, $models);
 		}
 <?php
-}
+endif;
 $conditionSets = array();
 foreach (array('hasOne', 'hasMany', 'belongsTo', 'hasAndBelongsToMany') as $type) {
 	foreach (array_keys($Inst->$type) as $model) {
@@ -76,7 +78,11 @@ foreach (array('hasOne', 'hasMany', 'belongsTo', 'hasAndBelongsToMany') as $type
 				echo "\t\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions', 'recursive'));\n\n";
 				echo "\t\t}\n";
 			} else {
-				echo "\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions'));\n\n";
+				echo "\t\tif (\$restrictToData && \$conditions === false) {\n";
+				echo "\t\t\t\$sets['$key'] = array();\n";
+				echo "\t\t} else {\n";
+				echo "\t\t\t\$sets['$key'] = \$this->{$currentModelName}->{$model}->find('list', compact('conditions'));\n\n";
+				echo "\t\t}\n";
 			}
 		}
 	}
