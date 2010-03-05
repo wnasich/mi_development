@@ -138,7 +138,7 @@ class DevController extends AppController {
 		}
 		foreach($whats as $what) {
 			$what = escapeshellarg($what);
-			$out = $this->__cake("clear $what");
+			$out = $this->__cake("clear $what -appFiles -q");
 			$this->Session->setFlash(implode($out, '<br />'));
 		}
 		return $this->redirect($this->referer());
