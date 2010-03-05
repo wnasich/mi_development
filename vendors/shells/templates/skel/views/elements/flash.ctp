@@ -11,6 +11,6 @@ if (isset($isEmail)) {
 	return;
 }
 foreach (array_keys($messages) as $key) {
-	$session->flash($key);
+	echo $session->flash($key);
 }
 echo $emailFlash;
