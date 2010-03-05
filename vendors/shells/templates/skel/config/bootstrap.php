@@ -1,20 +1,4 @@
 <?php
-/**
- * Ensure the TMP structure exists. Particularly useful when using dynamic subdomains, and defining
- * in webroot/index.php TMP to include the name of the domain and therefore eliminate the risk
- * of cache confusion
- */
-if (!is_dir(TMP . 'cache/persistent')) {
-	exec('mkdir -p ' . TMP . 'cache/data');
-	exec('mkdir -p ' . TMP . 'cache/models');
-	exec('mkdir -p ' . TMP . 'cache/persistent');
-	exec('mkdir -p ' . TMP . 'cache/url');
-	exec('mkdir -p ' . TMP . 'cache/views');
-	exec('mkdir -p ' . TMP . 'logs');
-	exec('mkdir -p ' . TMP . 'sessions');
-	exec('mkdir -p ' . TMP . 'tests');
-}
-
 define('DEFAULT_LANGUAGE', 'eng');
 Configure::write('Redirect.model', 'Redirect');
 

@@ -71,7 +71,7 @@ class AppController extends Controller {
 		if (Configure::read() && App::import('Component', 'DebugKit.Toolbar')) {
 			$panels = array();
 			if (App::import('Vendor', 'MiDevelopment.DevPanel')) {
-				if (DS === '/' && exec('which tidy')) {
+				if (DS === '/' && $this->_exec('which tidy')) {
 					$panels[] = 'MiDevelopment.Tidy';
 				}
 				$panels[] = 'MiDevelopment.Dev';
@@ -214,6 +214,18 @@ class AppController extends Controller {
 			return $this->SwissArmy->back($steps);
 		}
 		return $this->redirect($this->referer('/', true));
+	}
+
+/**
+ * exec method
+ *
+ * @param mixed $cmd
+ * @param mixed $out null
+ * @return void
+ * @access protected
+ */
+	protected function _exec($cmd, &$out = null) {
+		return Mi::exec($cmd, $out);
 	}
 
 /**

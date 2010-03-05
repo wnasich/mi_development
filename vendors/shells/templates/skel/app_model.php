@@ -72,22 +72,6 @@ class AppModel extends Model {
 	}
 
 /**
- * clearCache method
- *
- * Delete all cached views and all cached data
- *
- * @param mixed $type
- * @return void
- * @access protected
- */
-	function _clearCache($type = null) {
-		exec('rm -rf ' . CACHE . 'data/*');
-		clearCache(null, 'views');
-		clearCache(null, 'views', '');
-		parent::_clearCache($type);
-	}
-
-/**
  * invalidate method
  *
  * Translate error messages from codes to localized strings
@@ -188,6 +172,26 @@ class AppModel extends Model {
  */
 	function resetAssociations() {
 		return true;
+	}
+
+/**
+ * clearCache method
+ *
+ * Delete all cached views and all cached data
+ *
+ * @param mixed $type
+ * @return void
+ * @access protected
+ */
+	function _clearCache($type = null) {
+		$this->_exec('rm -rf ' . CACHE . 'data/*');
+		clearCache(null, 'views');
+		clearCache(null, 'views', '');
+		parent::_clearCache($type);
+	}
+
+	protected function _exec($cmd, &$out = null) {
+		return Mi::exec($cmd, $out);
 	}
 
 /**
