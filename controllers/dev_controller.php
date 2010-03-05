@@ -427,6 +427,9 @@ foreach ($_sources as $table) {
  * @access protected
  */
 	protected function _exec($cmd, &$out = null) {
+		if (!class_exists('Mi')) {
+			APP::import('Vendor', 'Mi.Mi');
+		}
 		return Mi::exec($cmd, $out);
 	}
 

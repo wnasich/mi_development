@@ -2,10 +2,11 @@
 if (empty($plugin)) {
 	return;
 }
-App::import('Vendor', 'Mi.Mi');
 if (!class_exists('Mi')) {
+	App::import('Vendor', 'Mi.Mi');
 	return;
 }
+
 $plugins = Mi::plugins();
 if (in_array($plugin, $plugins)) {
 }

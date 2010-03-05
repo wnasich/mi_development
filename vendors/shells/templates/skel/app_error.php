@@ -154,7 +154,9 @@ class AppError extends ErrorHandler {
 			};
 			$requestedPath = $_requestedPath;
 		}
-		App::import('Vendor', 'Mi.Mi');
+		if (!class_exists('Mi')) {
+			APP::import('Vendor', 'Mi.Mi');
+		}
 		$views = array_values(Mi::views('pages', null, null, false));
 		if (DS === '\\') {
 			$requestedPath = str_replace('/', DS, $requestedPath);

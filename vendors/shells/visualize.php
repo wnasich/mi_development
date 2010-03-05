@@ -133,6 +133,9 @@ class VisualizeShell extends Shell {
 		$command = "{$command} -Tpng  -o\"{$imgFile}\" \"{$dotFile}\"";
 		$this->__log->append($command . "\r\n");
 		ob_start();
+		if (!class_exists('Mi')) {
+			APP::import('Vendor', 'Mi.Mi');
+		}
 		Mi::exec($command, $return);
 		ob_clean();
 		if ($return != 0) {
